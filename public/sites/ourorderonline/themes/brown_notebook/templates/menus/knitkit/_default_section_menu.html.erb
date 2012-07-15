@@ -1,0 +1,15 @@
+<div id="menu">
+  <ul>
+    <%
+     counter = 1 
+     @website_sections.each do |section|
+    %>  
+    <li>
+        <a id="menu<%=counter%>" accesskey="<%=counter%>" href="<%= section.path %>"><%= section.title %></a>
+    </li>
+    <% 
+     counter = counter + 1
+     end 
+    %>
+  </ul>
+</div>

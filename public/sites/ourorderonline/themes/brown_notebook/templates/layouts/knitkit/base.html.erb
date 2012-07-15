@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml2/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="generator" content="Knitkit - Compass AE Open source content management platform" />
+    
+    <meta name="description" content="The companion to the OurOrder app allowing you to track your orders." />
+    <meta name="keywords" content="order ourorder orderonline" />
+    <meta name="copyright" content="&copy;" />
+    <meta name="robots" content="ALL" />
+    <meta name="language" content="English" />
+    
+    <title><%= @website.title %></title>
+    <%= javascript_include_tag :application %>
+    <%= include_extjs :theme => false %>
+    <%= static_javascript_include_tag('erp_app/utility.js') %>
+    <%= add_authenticity_token_to_extjs %>
+    <%= static_javascript_include_tag('erp_app/jquery_support.js') %>
+    <%#= static_stylesheet_link_tag('extjs/resources/css/knitkit_extjs_4.css') %>
+    
+    <link href="http://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet" type="text/css" />
+    <%= theme_stylesheet_link_tag('brown_notebook','default.css') %>
+    <style type="text/css"> 
+      @import "<%= theme_stylesheet_link_tag('brown_notebook','layout.css') %>";
+    </style>
+    <!--[if IE 6]><link href="ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <!--[if IE 7]><link href="ie6.css" rel="stylesheet" type="text/css" /><![endif]-->    
+    <%= static_javascript_include_tag('erp_app/widgets.js') %>
+    <%= static_javascript_include_tag('knitkit/helpers.js') %>
+    <%= yield :head %>
+  </head>
+  <body class="single">
+    <div id="wrapper">
+	  <div id="header" class="container">
+		  <div id="logo">
+			  <h1><a href="#"><%= @website.title %></a></h1>
+		  </div>
+	  	  <%= content_for?(:menu) ? yield(:menu) : render_menu(@contents) %>
+	  </div>
+	  <div id="page" class="container">
+	    <div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="wide-content" class="box-style1">
+				<%= yield %>
+				</div>
+			</div>
+		</div>
+	  </div>
+	</div>
+	<div id="footer" class="container">
+		<%= content_for?(:footer) ? yield(:footer) : (render :partial => 'shared/knitkit/footer') %>
+	</div>
+  </body>
+</html>

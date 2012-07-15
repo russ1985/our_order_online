@@ -1,0 +1,37 @@
+.image-style1a span {
+	background: url(../images/pics01.gif) no-repeat left top;
+}
+
+.image-style2a span {
+	background: url(../images/pics03.gif) no-repeat left top;
+}
+
+.image-style3a span {
+	background: url(../images/pics05.gif) no-repeat left top;
+}
+
+.image-style4a span {
+	background: url(../images/pics09.gif) no-repeat left top;
+}
+
+.link-style1 {
+	float: left;
+}
+
+ul.style3 li {
+	line-height: 1;
+}
+
+ul.style3 h3 {
+	margin-top: -10px;
+}
+
+#box1 {
+	padding-bottom: 60px;
+}
+
+#box4 {
+	margin-top: 35px;
+}
+
+

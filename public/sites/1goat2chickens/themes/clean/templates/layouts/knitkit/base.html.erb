@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml2/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="generator" content="Knitkit - Compass AE Open source content management platform" />
+    
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="copyright" content="&copy;" />
+    <meta name="robots" content="ALL" />
+    <meta name="language" content="English" />
+    
+    <title><%= @website.title %></title>
+    <%= javascript_include_tag :application %>
+    <%= include_extjs :theme => false%>
+    <%= static_javascript_include_tag('erp_app/utility.js') %>
+    <%= add_authenticity_token_to_extjs %>
+    <%= static_javascript_include_tag('erp_app/jquery_support.js') %>
+    <%= static_javascript_include_tag('datepicker.js') %>
+    <%= static_stylesheet_link_tag('datepicker.css') %>
+    <%= theme_stylesheet_link_tag('clean','forms.css') %>
+    <%= theme_stylesheet_link_tag('clean','common.css') %>
+    <%= theme_stylesheet_link_tag('clean','index.css') %>
+    <%= theme_stylesheet_link_tag('clean','portfolio.css') %>
+    <%= static_javascript_include_tag('erp_app/widgets.js') %>
+    <%= static_javascript_include_tag('ajax_pagination.js') %>
+    <%= static_javascript_include_tag('erp_app/shared/dynamic_forms/dynamic_forms_validation.js') %>
+    <%= static_javascript_include_tag('knitkit/helpers.js') %>
+    <%= yield :head %>
+  </head>
+  <body>
+    <div class="topBar"></div>
+      <!-- Begin container -->
+      <div id="container">
+        <!-- Begin contact -->
+        <div class="contactInfo">
+          <ul>
+            <li>Get rid of something.</li>
+            <li>Find something new.</li>
+          </ul>
+        </div>
+        <!--/ End contact -->  
+        <%= content_for?(:menu) ? yield(:menu) : render_menu(@contents) %>
+        <!-- Begin grey separator -->
+        <div class="greySeparator"></div>
+        <!--/ End grey separator -->   
+        <%= yield %>
+        <!-- Begin grey separator -->
+        <div class="greySeparator"></div>
+        <!--/ End grey separator -->
+        <%= content_for?(:footer) ? yield(:footer) : (render :partial => 'shared/knitkit/footer') %>  
+        
+        <!-- google analytics -->
+          <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30705924-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+  </body>
+</html>

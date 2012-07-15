@@ -1,0 +1,33 @@
+<div class='form'>
+  <% if @ajax_results %>
+    <%= form_remote_tag build_widget_url(:new) do %>
+        <%= hidden_field_tag :section_permalink, @section_permalink %>
+        <%= hidden_field_tag :content_type, @content_type %>
+        <%= hidden_field_tag :per_page, @per_page %>
+        <p>
+          <label>Search For</label>
+          <%= text_field_tag :query %>
+        </p>
+        <p class="submit">
+          <%=  submit_tag "Submit", :disable_with => "Please wait...", :class => "submit" %>
+        </p>
+      <% end %>
+  <% else %>
+    <%= form_tag "/#{@results_permalink}", :method => :get, :html => {:class => @css_class}  do %>
+        <%= hidden_field_tag :section_permalink, @section_permalink %>
+        <%= hidden_field_tag :results_permalink, @results_permalink %>
+        <%= hidden_field_tag :content_type, @content_type %>
+        <%= hidden_field_tag :widget_action, 'new' %>
+        <%= hidden_field_tag :per_page, @per_page %>
+         <p>
+          <label>Search For</label>
+          <%= text_field_tag :query %>
+        </p>
+        <p class="submit">
+          <%=  submit_tag "Submit", :disable_with => "Please wait...", :class => "submit" %>
+        </p>
+      <% end %>
+  <% end %>
+</div>
+<br />
+<div id="<%=widget_result_id%>"></div>
